@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "6429035e-713e-4dcd-aae8-65df6868ea3e",
+		"name": "menuOnline",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12958993"
+	},
+	"item": [
+		{
+			"name": "get menu",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\nquery {\n  getMenu(id: 1) {\n    userId\n    urlLogo\n    urlMenu\n    }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/graphql",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation LoginUser {\n   getLogin(email: \"jamacio@hotmail.com\", pass: \"teste@123456\") {\n    token\n    email\n    name\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/graphql",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation createUser {\n   createUser(email: \"jamacio@hotmail.com\", pass: \"teste@123456\", name: \"jamacio\") {\n    email\n    pass\n    name\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/graphql",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Menu",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation createMenu {\n   createMenu(urlLogo: \"xxxxxxx\", urlMenu: \"xxxxxx\", nameStore: \"xxxxxxxxxxx\") {\n    userId\n    urlLogo\n    urlMenu\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/graphql",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\nquery {\n  getUser {\n        email\n        name\n        pass\n        id\n    }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/graphql",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "token",
+			"type": "string"
+		}
+	]
+}
