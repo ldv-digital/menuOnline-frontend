@@ -17,7 +17,7 @@ docker-inspect:
 	docker network inspect bridge
 
 bash:
-	docker exec -it nextjs sh
+	docker exec -it app sh
 
 # Docker commands
 remove-all-images-docker:
