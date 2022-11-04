@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <div>
-      <input onChange={onChange} type="file" name="file" multiple />
+      <input onChange={onChange} type="file" name="file" />
       {imgsSrc.map((link, key) => (
         <img key={key} src={link} />
       ))}
