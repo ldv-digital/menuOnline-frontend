@@ -1,29 +1,30 @@
 import { useState } from 'react'
 import uploadImageS3 from '../services/minio-client'
+import { gql } from "@apollo/client";
+import client from "../services/apollo-client";
 
 export default function createmenu() {
-
-  testeAteste()
-
-  const [imgsSrc, setImgsSrc] = useState([]);
+  const urlMinio = '//' + process.env.NEXT_PUBLIC_ENDPOINT + ':' + process.env.NEXT_PUBLIC_PORT + '/' + process.env.NEXT_PUBLIC_BUCKET;
   const [imgName, setImgName] = useState("");
-
+  const [idMenu, setIdMenu] = useState("");
   const onChange = (e) => {
-
-
-
     for (const file of e.target.files) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        uploadImageS3(reader.result, file).then(function (result) {
+        uploadImageS3(reader.result, file).then(function (resultUpload) {
+          if (resultUpload.sucess) {
+            const urlMenu = resultUpload?.fileName;
+            makeMenu({ urlMenu }).then(({ data }) => {
+              const { createMenu } = data
+              setIdMenu(createMenu?.id)
+              console.log('createMenu', createMenu)
+            })
+            setImgName(urlMinio + '/' + urlMenu)
 
-          console.log('tetse', result)
 
-          setImgName(result.fileName)
+          }
         });
-
-        setImgsSrc((imgs) => [...imgs, reader.result]);
       };
 
       reader.onerror = () => {
@@ -35,34 +36,33 @@ export default function createmenu() {
   return (
     <div>
       <input onChange={onChange} type="file" name="file" />
-      {imgName}
-      {imgsSrc.map((link, key) => (
-        <img key={key} src={link} />
-      ))}
+      {idMenu ? (
+        <><p>Menu criado com sucesso {idMenu}</p>
+          <p><img src={imgName} /></p>
+        </>
+      ) : (
+        <>Selecione uma imagem</>
+      )}
     </div>
   );
 }
 
-async function testeAteste() {
+async function makeMenu(itemsMenu) {
 
+  const result = await client.mutate({
+    mutation: gql`
+    mutation createMenu($urlLogo: String, $urlMenu: String, $nameStore: String) {
+      createMenu(urlLogo: $urlLogo, urlMenu: $urlMenu, nameStore: $nameStore) {
+          id
+        userId
+        urlLogo
+        urlMenu
+      }
+    }
+  `,
+    variables: itemsMenu
+  })
 
-
-  // const id_menu = 1;
-  // const { data } = await client.query({
-  //   query: gql`
-  //     query Menu($id_menu: ID) {
-  //       getMenu(id: $id_menu) {
-  //         userId
-  //         urlLogo
-  //         urlMenu
-  //       }
-  //     }
-  //   `,
-  //   variables: { id_menu }
-  // });
-
-  // console.log('aaaaaaaaaaaaa', data)
-
-
+  return result;
 }
 
