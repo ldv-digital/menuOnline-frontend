@@ -1,129 +1,162 @@
-.container {
-  padding: 0 2rem;
-}
-
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+.body {
+  height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+.login_body {
+  padding: 60px;
+  max-width: 450px;
+  height: 550px;
+  background-color: rgba(0, 0, 0, 0.559);
+  border-radius: 10px;
+  box-shadow: 1px 3px 8px rgba(230, 219, 219, 0.809);
+  box-sizing: border-box;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
+.login_body h2 {
+  font-size: 32px;
+  color: #fff;
+  margin-top: 0;
   text-align: center;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
+.login_body input {
+  height: 50px;
+  width: 100%;
+  color: #fff;
+  background-color: #333;
+  border: none;
   border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  padding-left: 15px;
+  box-sizing: border-box;
+  outline: none;
 }
 
-.grid {
+.login_body input:hover {
+  background-color: #444;
+}
+
+.input_box {
+  margin-bottom: 25px;
+}
+
+.login_body button {
+  height: 50px;
+  width: 100%;
+  color: #fff;
+  background-color: #8609e5;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.login_body button:active {
+  opacity: 0;
+  transition: 0.3s
+}
+
+.login_body button:hover {
+  background-color: transparent;
+  border: solid 1px #333;
+  cursor: pointer;
+}
+
+.support {
+  display: flex;
+  color: #b3b3b3;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.support input {
+  width: 15px;
+  height: 15px;
+}
+
+.remember {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
+.remember span {
+  margin-right: 5px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.help {
   text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  color: #737373;
+  display: flex;
+  align-items: center;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.help a:hover {
+  text-decoration: underline;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.login_facebook {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #737373;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.login_facebook span {
+  margin-right: 5px;
+  font-size: 13px;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.login_facebook span a {
+  text-decoration: none;
+  color: #737373;
 }
 
-@media (max-width: 600px) {
-  .grid {
+.sign_up {
+  color: #737373;
+  font-size: 16px;
+}
+
+.sign_up a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.sign_up a:hover {
+  text-decoration: underline;
+}
+
+.terms {
+  color: #737373;
+  font-size: 13px;
+}
+
+.terms a {
+  text-decoration: none;
+  color: #0071eb;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 460px) {
+  .login_body {
+    width: 300px;
+    padding: 30px;
+  }
+
+  .login_body input {
     width: 100%;
-    flex-direction: column;
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
-  }
-  .code {
-    background: #111;
-  }
-  .logo img {
-    filter: invert(1);
-  }
 }

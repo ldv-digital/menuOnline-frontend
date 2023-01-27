@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <div>
 
-            Bem vindo!!!
+            <h1>Bem vindo!!!</h1>
         </div>
     );
 }
