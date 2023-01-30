@@ -4,6 +4,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: linear-gradient(170deg, #000000a2, #8609e5);
+  font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .login_body {
