@@ -64,7 +64,7 @@ export default function Login() {
           <div className={styles.login_footer}>
             <div className={styles.sign_up}>
               <p>
-                Novo por aqui? <a href="#">Cadastre-se.</a>
+                Novo por aqui? <a href="./register">Cadastre-se.</a>
               </p>
             </div>
 
@@ -95,6 +95,5 @@ async function makeLogin(user, pass) {
     `,
     variables: { user, pass }
   })
-
   localStorage.setItem('token', result?.data?.getLogin?.token)
 }
