@@ -9,6 +9,25 @@
 
 }
 
+@keyframes error_message {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.error_message{
+  color: #fff;
+  font-size: 1.2rem;
+  border-left: solid 3px red;
+  border-right: solid 3px red;
+  padding: 2px;
+  -webkit-animation: error_message .9s linear infinite;
+  -moz-animation: error_message .9s linear infinite;
+  -ms-animation: error_message .9s linear infinite;
+  -o-animation: error_message .9s linear infinite;
+  animation: error_message .9s linear infinite;
+}
+
 .login_body {
   padding: 60px;
   max-width: 450px;
@@ -40,6 +59,10 @@
 
 .login_body input:hover {
   background-color: #444;
+}
+
+.login_body input.ativo{
+  border: solid 1px red;
 }
 
 .input_box {
@@ -104,23 +127,6 @@
 
 .help a:hover {
   text-decoration: underline;
-}
-
-.login_facebook {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  color: #737373;
-}
-
-.login_facebook span {
-  margin-right: 5px;
-  font-size: 13px;
-}
-
-.login_facebook span a {
-  text-decoration: none;
-  color: #737373;
 }
 
 .sign_up {
