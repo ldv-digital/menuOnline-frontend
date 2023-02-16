@@ -1,13 +1,22 @@
 import { gql } from '@apollo/client'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import client from '../services/apollo-client'
 import styles from '../styles/Home.module.css'
 export default function Login() {
   const [getUser, setUser] = useState('')
   const [getPass, setPass] = useState('')
+  const [loginError, setLoginError] = useState(false)
+  const router = useRouter()
 
-  function handleLogin() {
-    makeLogin(getUser, getPass)
+  async function handleLogin(event) {
+    event.preventDefault()
+    let loginOk = await makeLogin(getUser, getPass)
+    if (loginOk) {
+      router.push('/account')
+    } else {
+      setLoginError(true)
+    }
   }
 
   function handleUser(event) {
@@ -18,14 +27,25 @@ export default function Login() {
     setPass(event.target.value)
   }
 
+  function DivError() {
+    return <div className={styles.error_message}>Usuario Não encontrado!!!</div>
+  }
+
+  const _onReady = event => {
+    console.log(event)
+  }
+
   return (
     <div className={styles.body}>
+      {loginError ? <DivError /> : null}
       <div className={styles.login_body}>
         <div className={styles.login_box}>
           <h2>Menu Online</h2>
           <form onSubmit={handleLogin}>
             <div className={styles.input_box}>
               <input
+                className={loginError ? styles.ativo : null}
+                id="inputBox"
                 required
                 type="email"
                 placeholder="Email"
@@ -35,6 +55,7 @@ export default function Login() {
 
             <div className={styles.input_box}>
               <input
+                className={loginError ? styles.ativo : null}
                 required
                 type="password"
                 placeholder="Senha"
@@ -43,7 +64,7 @@ export default function Login() {
             </div>
 
             <div>
-              <button type="submit" className={styles.submit}>
+              <button type="submit" value="submit" className={styles.submit}>
                 Login
               </button>
             </div>
@@ -95,5 +116,10 @@ async function makeLogin(user, pass) {
     `,
     variables: { user, pass }
   })
-  localStorage.setItem('token', result?.data?.getLogin?.token)
+  let resToken = result?.data?.getLogin?.token
+  let isvalidToken = resToken ? true : false
+  if (isvalidToken) {
+    localStorage.setItem('token', resToken)
+  }
+  return isvalidToken
 }
