@@ -23,7 +23,7 @@ export default function Login() {
       <div className={styles.login_body}>
         <div className={styles.login_box}>
           <h2>Menu Online</h2>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className={styles.input_box}>
               <input
                 required
@@ -43,7 +43,7 @@ export default function Login() {
             </div>
 
             <div>
-              <button onClick={handleLogin} className={styles.submit}>
+              <button type="submit" className={styles.submit}>
                 Login
               </button>
             </div>
