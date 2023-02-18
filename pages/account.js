@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { gql } from "@apollo/client";
-import client from "../services/apollo-client";
+import { getUser } from '../hooks/getUser';
 
 export default function Account() {
 
@@ -24,22 +23,5 @@ export default function Account() {
             <p>user: {user?.email}</p>
         </div>
     );
-}
-
-async function getUser() {
-    const { data } = await client.query({
-        query: gql`
-      query {
-        getUser {
-              email
-              name
-              pass
-              id
-          }
-      }
-    `
-    });
-
-    return data?.getUser;
 }
 

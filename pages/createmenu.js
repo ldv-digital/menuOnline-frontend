@@ -1,12 +1,33 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import uploadImageS3 from '../services/minio-client'
 import { gql } from "@apollo/client";
 import client from "../services/apollo-client";
+import { getUser } from '../hooks/getUser';
 
 export default function createmenu() {
+  const [user, setUser] = useState({});
   const urlMinio = '//' + process.env.NEXT_PUBLIC_ENDPOINT + ':' + process.env.NEXT_PUBLIC_PORT + '/' + process.env.NEXT_PUBLIC_BUCKET;
   const [imgName, setImgName] = useState("");
   const [idMenu, setIdMenu] = useState("");
+
+  useEffect(async () => {
+    const data = await getUser()
+
+    if (!data?.id) {
+      console.log('usuario não está logado!')
+    }
+    setUser(data)
+
+  }, [])
+
+  if (!user.id) {
+    return (
+      <div>
+        Faça Login para criar um menu
+      </div>
+    );
+  }
+
   const onChange = (e) => {
     for (const file of e.target.files) {
       const reader = new FileReader();
@@ -21,8 +42,6 @@ export default function createmenu() {
               console.log('createMenu', createMenu)
             })
             setImgName(urlMinio + '/' + urlMenu)
-
-
           }
         });
       };
