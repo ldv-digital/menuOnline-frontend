@@ -4,13 +4,7 @@ import client from '../services/apollo-client'
 import { useRouter } from 'next/router'
 
 export default function MenuCliente() {
-  const urlMinio =
-    '//' +
-    process.env.NEXT_PUBLIC_ENDPOINT +
-    ':' +
-    process.env.NEXT_PUBLIC_PORT +
-    '/' +
-    process.env.NEXT_PUBLIC_BUCKET
+  const urlMinio = process.env.NEXT_PUBLIC_MINIO_ENDPOINT + ':' + process.env.NEXT_PUBLIC_MINIO_PORT + '/' + process.env.NEXT_PUBLIC_MINIO_BUCKET
   const [urlMenu, setUrlMenu] = useState('')
   const router = useRouter()
   const { id } = router.query
