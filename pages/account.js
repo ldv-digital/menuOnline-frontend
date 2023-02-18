@@ -4,22 +4,24 @@ import client from "../services/apollo-client";
 
 export default function Account() {
 
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState({});
 
     useEffect(async () => {
-        const { name, id } = await getUser()
+        const data = await getUser()
 
-        if (!id) {
+        if (!data?.id) {
             console.log('usuario não está logado!')
         }
-        setUser(name)
+        setUser(data)
 
     }, [])
 
     return (
         <div>
             <p>Account</p>
-            <p>user: {user}</p>
+            <p>user: {user?.id}</p>
+            <p>user: {user?.name}</p>
+            <p>user: {user?.email}</p>
         </div>
     );
 }
