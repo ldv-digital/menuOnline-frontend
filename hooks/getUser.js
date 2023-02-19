@@ -12,7 +12,8 @@ export async function getUser() {
               id
           }
       }
-    `
+    `,
+    fetchPolicy: "no-cache" 
     });
 
     return data?.getUser;

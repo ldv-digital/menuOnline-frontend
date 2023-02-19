@@ -2,6 +2,7 @@ import { gql } from '@apollo/client'
 import client from '../services/apollo-client'
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
+import { Navigation } from '../components/Navigation';
 
 export default function Register() {
   const router = useRouter()
@@ -24,11 +25,12 @@ export default function Register() {
     }
 
     router.push('/register')
- 
+
   }
 
   return (
     <div className={styles.body}>
+      <Navigation />
       <div className={styles.login_body}>
         <div className={styles.login_box}>
           <h2>Crie sua conta</h2>

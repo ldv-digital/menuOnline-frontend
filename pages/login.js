@@ -1,19 +1,33 @@
 import { gql } from '@apollo/client'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import client from '../services/apollo-client'
 import styles from '../styles/Home.module.css'
+import { Navigation } from '../components/Navigation';
+import { getUser } from '../hooks/getUser';
+
 export default function Login() {
-  const [getUser, setUser] = useState('')
-  const [getPass, setPass] = useState('')
+  const [user, setUser] = useState('')
+  const [pass, setPass] = useState('')
   const [loginError, setLoginError] = useState(false)
-  const router = useRouter()
+  const router = useRouter();
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getUser()
+
+      if (data?.id) {
+        router.push('/account');
+      }
+    }
+    fetchData();
+  }, []);
 
   async function handleLogin(event) {
     event.preventDefault()
-    let loginOk = await makeLogin(getUser, getPass)
+    let loginOk = await makeLogin(user, pass)
     if (loginOk) {
-      router.push('/account')
+      router.push('/account');
     } else {
       setLoginError(true)
     }
@@ -37,6 +51,7 @@ export default function Login() {
 
   return (
     <div className={styles.body}>
+      <Navigation />
       {loginError ? <DivError /> : null}
       <div className={styles.login_body}>
         <div className={styles.login_box}>

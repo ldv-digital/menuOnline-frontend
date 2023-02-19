@@ -3,6 +3,7 @@ import uploadImageS3 from '../services/minio-client'
 import { gql } from "@apollo/client";
 import client from "../services/apollo-client";
 import { getUser } from '../hooks/getUser';
+import { Navigation } from '../components/Navigation';
 
 export default function createmenu() {
   const [user, setUser] = useState({});
@@ -10,15 +11,13 @@ export default function createmenu() {
   const [imgName, setImgName] = useState("");
   const [idMenu, setIdMenu] = useState("");
 
-  useEffect(async () => {
-    const data = await getUser()
-
-    if (!data?.id) {
-      console.log('usuario não está logado!')
-    }
-    setUser(data)
-
-  }, [])
+  getUser()
+    .then((data) => {
+      if (!data?.id) {
+        console.log('usuario não está logado!')
+      }
+      setUser(data);
+    })
 
   if (!user.id) {
     return (
@@ -54,6 +53,7 @@ export default function createmenu() {
 
   return (
     <div>
+      <Navigation />
       <input onChange={onChange} type="file" name="file" />
       {idMenu ? (
         <><p>Menu criado com sucesso {idMenu}</p>
