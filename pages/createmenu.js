@@ -7,17 +7,21 @@ import { Navigation } from '../components/Navigation';
 
 export default function createmenu() {
   const [user, setUser] = useState({});
-  const urlMinio = process.env.NEXT_PUBLIC_MINIO_ENDPOINT + ':' + process.env.NEXT_PUBLIC_MINIO_PORT + '/' + process.env.NEXT_PUBLIC_MINIO_BUCKET;
+  const urlMinio = '//' + process.env.NEXT_PUBLIC_MINIO_ENDPOINT + ':' + process.env.NEXT_PUBLIC_MINIO_PORT + '/' + process.env.NEXT_PUBLIC_MINIO_BUCKET;
   const [imgName, setImgName] = useState("");
   const [idMenu, setIdMenu] = useState("");
 
-  getUser()
-    .then((data) => {
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getUser()
+
       if (!data?.id) {
         console.log('usuario não está logado!')
       }
-      setUser(data);
-    })
+      setUser(data)
+    }
+    fetchData();
+  }, []);
 
   if (!user.id) {
     return (
