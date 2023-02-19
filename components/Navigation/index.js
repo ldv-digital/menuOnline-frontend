@@ -28,7 +28,7 @@ export const Navigation = () => {
                     <span> | </span>
                     <a id="login" className="menu-item" href="/login">Entrar</a>
                     <span> | </span>
-                    <a id="register" className="menu-item" href="/register">Criar uma conta</a>
+                    <a id="register" className="menu-item" href="/register">Criar uma conta</a>     
                 </>
             ) : (
                 <>
@@ -36,6 +36,8 @@ export const Navigation = () => {
                     <a id="account" className="menu-item" href="/account">Minha conta</a>
                     <span> | </span>
                     <a id="createmenu" className="menu-item" href="/createmenu">Criar Menu</a>
+                    <span> | </span>
+                    <a id="listmenu" className="menu-item" href="/listmenu">Meus Menus</a>
                     <span> | </span>
                     <span> Bem Vindo {userState?.name}, </span>
                     <a id="logout" className="menu-item" href="/login" onClick={handleLogout} >Sair</a>
