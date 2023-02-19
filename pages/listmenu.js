@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { gql } from '@apollo/client'
 import client from '../services/apollo-client'
 import { useRouter } from 'next/router'
+import { Navigation } from '../components/Navigation';
 
 export default function ListMenu() {
     const urlMinio = '//' + process.env.NEXT_PUBLIC_MINIO_ENDPOINT + ':' + process.env.NEXT_PUBLIC_MINIO_PORT + '/' + process.env.NEXT_PUBLIC_MINIO_BUCKET
@@ -54,6 +55,7 @@ export default function ListMenu() {
     }
 
     return (<div>
+        <Navigation />
         {Menus.map((item) => (
             <div key={item.id}>
                 <img src={urlMinio + '/' + item.urlMenu} width="300" />
