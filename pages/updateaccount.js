@@ -76,11 +76,11 @@ export default function UpdateAccount() {
     return (
         <form onSubmit={handleUpdate}>
             <div>
-                <input type="text" name="name" placeholder={user?.name} />
+                <input type="text" name="name" defaultValue={user?.name} />
             </div>
 
             <div>
-                <input type="email" name="email" placeholder={user?.email} />
+                <input type="email" name="email" defaultValue={user?.email} />
             </div>
 
             <div>
@@ -104,7 +104,7 @@ export default function UpdateAccount() {
             </div>
 
             <div>
-                <button>Cadastrar</button>
+                <button>Atualizar</button>
             </div>
         </form>
     )

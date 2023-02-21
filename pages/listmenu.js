@@ -59,7 +59,7 @@ export default function ListMenu() {
         {Menus.map((item) => (
             <div key={item.id}>
                 <img src={urlMinio + '/' + item.urlMenu} width="300" />
-                <div><button onClick={() => router.push(item.id)}>Visualizar</button> | <button onClick={() => deleteMenu(item.id)}>Excluir</button></div>
+                <div><button onClick={() => router.push(item.id)}>Visualizar</button> |  <button onClick={() => router.push('/updatemenu/' + item.id)}>Editar</button> | <button onClick={() => deleteMenu(item.id)}>Excluir</button></div>
 
                 <br></br>
                 <br></br>
