@@ -57,15 +57,13 @@ export const Navigation = () => {
               Meus Menus
             </a>
           </ul>
-          <span> Bem Vindo {userState?.name}, </span>
-          <a
+          <span> Bem Vindo {userState?.name},<a
             id="logout"
             className="menu-item"
             href="/login"
             onClick={handleLogout}
-          >
-            Sair
-          </a>
+          >Sair
+          </a></span>
         </>
       )}
     </nav>
