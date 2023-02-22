@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { gql } from '@apollo/client'
 import client from '../services/apollo-client'
 import { useRouter } from 'next/router'
+import { Footer } from '../components/footer'
 
 export default function MenuCliente() {
   const urlMinio = '//' + process.env.NEXT_PUBLIC_MINIO_ENDPOINT + ':' + process.env.NEXT_PUBLIC_MINIO_PORT + '/' + process.env.NEXT_PUBLIC_MINIO_BUCKET
@@ -20,7 +21,8 @@ export default function MenuCliente() {
 
   return (
     <div>
-      <img src={urlMenu} />
+      <img src={urlMenu} Style="width: 100%;" />
+      <Footer />
     </div>
   )
 }
