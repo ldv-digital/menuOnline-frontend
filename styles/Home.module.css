@@ -31,7 +31,6 @@
 
 .nav a:hover{
   background-color: #8609e5fb;
-
 }
 
 @keyframes error_message {
@@ -181,6 +180,51 @@
 
 .terms a:hover {
   text-decoration: underline;
+}
+
+.cardapio img{
+  margin-bottom: -3.6px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  background: linear-gradient(170deg, #000000a2, #8609e5b5);
+  margin-bottom: -5px;
+  height: 40px;
+  font-weight: bold;
+}
+
+.footer a{
+  margin: 0;
+  padding: 11px;
+  transition: all 0.3s;
+}
+
+.footer a:hover{
+  background-color: #8609e5fb;
+}
+
+/* termos e privacidade*/
+
+.privacy{
+  max-width: 900px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background: #4704810c;
+}
+
+.privacy span{
+  color: rgb(68,68,68);
+}
+
+.privacy a{
+  background-color: transparent; 
+  color: rgb(48, 74, 242)
 }
 
 @media (max-width: 460px) {

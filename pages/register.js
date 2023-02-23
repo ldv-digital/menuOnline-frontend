@@ -81,8 +81,14 @@ export default function Register() {
               <div className={styles.terms}>
                 <p>
                   Ao clicar em Cadastrar, você concorda com nossos Termos,"
-                  <a href="#">Política de Privacidade</a>" e "
-                  <a href="#">Política de Cookies</a>".
+                  <a href="/privacy" rel="noopener noreferrer" target="_blank">
+                    Política de Privacidade
+                  </a>
+                  " e "
+                  <a href="/terms" rel="noopener noreferrer" target="_blank">
+                    Termos de Uso
+                  </a>
+                  ".
                 </p>
               </div>
             </div>
