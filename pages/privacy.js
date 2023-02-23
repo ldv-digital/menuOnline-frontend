@@ -1,4 +1,5 @@
 import { Navigation } from '../components/Navigation'
+import { Footer } from '../components/footer'
 import styles from '../styles/Home.module.css'
 
 export default function Privacy() {
@@ -29,7 +30,7 @@ export default function Privacy() {
           <span>
             Apenas retemos as informações coletadas pelo tempo necessário para
             fornecer o serviço solicitado. Quando armazenamos dados, protegemos
-            dentro de meios comercialmente aceitáveis ​​para evitar perdas e
+            dentro de meios comercialmente aceitáveis para evitar perdas e
             roubos, bem como acesso, divulgação, cópia, uso ou modificação não
             autorizados.
           </span>
@@ -71,7 +72,7 @@ export default function Privacy() {
             informações pessoais, entre em contacto connosco.
           </span>
         </p>
-        <p>
+        <div>
           <span>
             <ul>
               <li>
@@ -93,7 +94,7 @@ export default function Privacy() {
                   Utilizamos anúncios para compensar os custos de funcionamento
                   deste site e fornecer financiamento para futuros
                   desenvolvimentos. Os cookies de publicidade comportamental
-                  usados ​​por este site foram projetados para garantir que você
+                  usados por este site foram projetados para garantir que você
                   forneça os anúncios mais relevantes sempre que possível,
                   rastreando anonimamente seus interesses e apresentando coisas
                   semelhantes que possam ser do seu interesse.
@@ -112,7 +113,7 @@ export default function Privacy() {
               </li>
             </ul>
           </span>
-        </p>
+        </div>
         <h3>
           <span>Compromisso do Usuário</span>
         </h3>
@@ -126,13 +127,13 @@ export default function Privacy() {
         <ul>
           <li>
             <span>
-              A) Não se envolver em atividades que sejam ilegais ou contrárias à
+              A Não se envolver em atividades que sejam ilegais ou contrárias à
               boa fé a à ordem pública;
             </span>
           </li>
           <li>
             <span>
-              B) Não difundir propaganda ou conteúdo de natureza racista,
+              B Não difundir propaganda ou conteúdo de natureza racista,
               xenofóbica,
             </span>
 
@@ -143,7 +144,7 @@ export default function Privacy() {
           </li>
           <li>
             <span>
-              C) Não causar danos aos sistemas físicos (hardwares) e lógicos
+              C Não causar danos aos sistemas físicos \(hardwares\) e lógicos
               (softwares) do Menu Online, de seus fornecedores ou terceiros,
               para introduzir ou disseminar vírus informáticos ou quaisquer
               outros sistemas de hardware ou software que sejam capazes de
@@ -164,10 +165,11 @@ export default function Privacy() {
         </p>
         <p>
           <span>
-            Esta política é efetiva a partir de&nbsp;23 February 2023 13:06
+            Esta política é efetiva a partir de 23 February 2023 13:06
           </span>
         </p>
       </div>
+      <Footer />
     </>
   )
 }

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { gql } from '@apollo/client'
 import client from '../services/apollo-client'
 import { useRouter } from 'next/router'
-import { Footer } from '../components/footer'
 import styles from '../styles/Home.module.css'
 
 export default function MenuCliente() {
@@ -29,7 +28,12 @@ export default function MenuCliente() {
   return (
     <div className={styles.cardapio}>
       <img src={urlMenu} Style="width: 100%;" />
-      <Footer />
+      <div className={styles.footer}>
+        <a href="/register">
+          Crie sua conta grátis! Desfrute do acesso ao menu virtual, sem custo
+          algum!
+        </a>
+      </div>
     </div>
   )
 }

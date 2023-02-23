@@ -7,32 +7,6 @@
   background: linear-gradient(170deg, #000000a2, #8609e5);
 }
 
-.nav{
-  background: linear-gradient(170deg, #000000a2, #8609e5b5);
-  color: #fff;
-  font-size: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  font-weight: bold;
-}
-
-.logo{
-  padding: 22px;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-
-.nav a{
-  padding: 12px;
-  transition: all 0.3s;
-}
-
-.nav a:hover{
-  background-color: #8609e5fb;
-}
-
 @keyframes error_message {
   0% { opacity: 0; }
   50% { opacity: 0.5; }
@@ -186,26 +160,7 @@
   margin-bottom: -3.6px;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  background: linear-gradient(170deg, #000000a2, #8609e5b5);
-  margin-bottom: -5px;
-  height: 40px;
-  font-weight: bold;
-}
 
-.footer a{
-  margin: 0;
-  padding: 11px;
-  transition: all 0.3s;
-}
-
-.footer a:hover{
-  background-color: #8609e5fb;
-}
 
 /* termos e privacidade*/
 
@@ -239,19 +194,3 @@
 
 }
 
-@media (max-width: 620px) {
-  .nav {
-    justify-content: center;
-  }
-
-  .logo {
-    display: none;
-  }
-
-}
-
-@media (max-width: 400px){
-  .nav a{
-    padding: 6px;
-  }
-}

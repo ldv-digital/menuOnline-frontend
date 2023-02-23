@@ -1,0 +1,20 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  background: linear-gradient(170deg, #000000a2, #8609e5b5);
+  margin-bottom: -5px;
+  height: 40px;
+  font-weight: bold;
+}
+
+.footer a{
+  margin: 0;
+  padding: 11px;
+  transition: all 0.3s;
+}
+
+.footer a:hover{
+  background-color: #8609e5fb;
+}
