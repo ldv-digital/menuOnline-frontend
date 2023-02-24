@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getUser } from '../../hooks/getUser'
-import styles from '../../styles/Home.module.css'
+import Nav from './Nav.module.css'
 
 export const Navigation = () => {
   const [userState, setUser] = useState({})
@@ -22,8 +22,8 @@ export const Navigation = () => {
   }
 
   return (
-    <nav className={styles.nav}>
-      <div className={styles.logo}>MenuOnline</div>
+    <nav className={Nav.nav}>
+      <div className={Nav.logo}>MenuOnline</div>
 
       {!userState?.id ? (
         <>

@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from '../../styles/Home.module.css'
+import footer from './Footer.module.css'
 
 export const Footer = () => {
   return (
-    <div className={styles.footer}>
+    <div className={footer.footer}>
       <a href="/register">
         Crie sua conta grátis! Desfrute do acesso ao menu virtual, sem custo
         algum!
