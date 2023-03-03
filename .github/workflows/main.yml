@@ -7,9 +7,9 @@ jobs:
   run_tests:
     runs-on: ubuntu-20.04
     steps:
-      - uses: shimataro/ssh-key-action@v2
+      - uses: actions/checkout@v2
         with:
-          key: ${{ secrets.KEY }}
+          ssh-key: ${{ secrets.KEY }}
       - name: Run script file
         run: |
           chmod +x ./main_deploy.sh
