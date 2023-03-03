@@ -11,8 +11,10 @@ jobs:
       - name: Run script file
         with:
           ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-          ssh-key: ${{ secrets.KEY }}
-          run: |    
-            chmod +x ./main_deploy.sh
-            ./main_deploy.sh
+          ssh-key: ${{ secrets.KEY }}      
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa        
+          chmod +x ./main_deploy.sh
+          ./main_deploy.sh
         shell: bash
