@@ -12,4 +12,6 @@ jobs:
       run: |
          chmod +x ./main_deploy.sh
          ./main_deploy.sh
+      env:
+        KEY: ${{ secrets.KEY }}
       shell: bash
