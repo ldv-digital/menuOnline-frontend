@@ -36,4 +36,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Migrate prisma db
 to update database run this command
-make prisma-migrate 
+make prisma-migrate
