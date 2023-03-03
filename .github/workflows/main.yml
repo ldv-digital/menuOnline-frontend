@@ -12,5 +12,5 @@ jobs:
           key: ${{ secrets.key }}     
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}           
       - name: Run script file
-        run: ./main_deploy.sh
+        run: echo "testing..."
         shell: bash
