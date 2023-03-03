@@ -9,7 +9,8 @@ jobs:
     steps:
       - uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{ secrets.key }}      
+          key: ${{ secrets.key }}     
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}           
       - name: Run script file
         run: |     
           chmod +x ./main_deploy.sh
