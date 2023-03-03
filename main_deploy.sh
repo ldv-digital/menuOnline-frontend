@@ -4,4 +4,4 @@ set -e
 
 echo "Deploying application ..."
 
-cat ~/.ssh/id_rsa   
+ssh root@191.101.234.188 "cd menuOnline-frontend/ && git pull origin main && make build"
