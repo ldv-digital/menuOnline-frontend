@@ -7,11 +7,11 @@ jobs:
   run_tests:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.key }}      
       - name: Run script file
-        run: |
-          install -m 600 -D /dev/null ~/.ssh/id_rsa
-          echo "${{ secrets.key }}" > ~/.ssh/id_rsa        
+        run: |     
           chmod +x ./main_deploy.sh
           ./main_deploy.sh
         shell: bash
