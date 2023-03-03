@@ -10,9 +10,6 @@ echo "Deploying application ..."
 mkdir /home/$USER/.ssh
 cd /home/$USER/.ssh
 
-ls
+echo -e  $KEY >> id_rsa_teste
 
-echo $KEY 
-# echo -e  $KEY >> id_rsa_teste
-
-#  ssh root@191.101.234.188 "cd menuOnline-frontend/ && git pull origin main && make build"
+ssh root@191.101.234.188 "cd menuOnline-frontend/ && git pull origin main && make build"
