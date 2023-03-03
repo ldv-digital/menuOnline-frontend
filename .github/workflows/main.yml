@@ -12,8 +12,7 @@ jobs:
           key: ${{ secrets.key }}     
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}           
       - name: Run script file
-        run: |  
-          pwd   
-          chmod +x ./main_deploy.sh
-          ./main_deploy.sh
+        run: |               
+          chmod +x pwd/main_deploy.sh
+          pwd/main_deploy.sh
         shell: bash
