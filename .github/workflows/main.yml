@@ -13,7 +13,7 @@ jobs:
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}           
       - name: Run script file
         run: |  
-        pwd   
+          pwd   
           chmod +x ./main_deploy.sh
           ./main_deploy.sh
         shell: bash
