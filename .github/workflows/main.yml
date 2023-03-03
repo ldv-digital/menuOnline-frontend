@@ -4,20 +4,12 @@ on:
       - main
 name: 🚀 Deploy Production
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
+  run_tests:
+    runs-on: ubuntu-20.04
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v2
-
-      - name: 📂 Sync files
-        uses: ErenKrt/ssh-push@main
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
-          source: "dist/"
-          scripts: |
-            whoami
-            ls
+    - uses: actions/checkout@v2
+    - name: Run script file
+      run: |
+         chmod +x ./public/scripts/test.sh
+         ./public/scripts/test.sh
+      shell: bash
