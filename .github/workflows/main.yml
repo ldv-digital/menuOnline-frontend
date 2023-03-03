@@ -8,8 +8,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-        with:
-          ssh-key: ${{ secrets.KEY }}
       - name: Run script file
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
