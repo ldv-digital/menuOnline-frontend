@@ -12,5 +12,5 @@ jobs:
           key: ${{ secrets.key }}     
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}           
       - name: Run script file
-        run: echo "testing..."
+        run: sudo ssh root@191.101.234.188 
         shell: bash
