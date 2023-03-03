@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy Production
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: 📂 Sync files
+        uses: ErenKrt/ssh-push@main
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+          source: "dist/"
+          scripts: |
+            whoami
+            ls
