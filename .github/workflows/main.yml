@@ -10,8 +10,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run script file
         with:
+          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
           ssh-key: ${{ secrets.KEY }}
-        run: |    
-          chmod +x ./main_deploy.sh
-          ./main_deploy.sh
+          run: |    
+            chmod +x ./main_deploy.sh
+            ./main_deploy.sh
         shell: bash
