@@ -31,7 +31,7 @@ export default function MenuCliente() {
       <div className={styles.footer}>
         <a href="/register">
           Crie sua conta grátis! Desfrute do acesso ao menu virtual, sem custo
-          algum!
+          algum!!
         </a>
       </div>
     </div>
