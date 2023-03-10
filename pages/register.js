@@ -53,8 +53,7 @@ export default function Register() {
                   required
                   type="password"
                   name="password"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$"
-                  minlength="8"
+                  minLength="8"
                   title="A senha deve conter no minimo 8 caracteres."
                   placeholder="Senha"
                 />
@@ -65,8 +64,7 @@ export default function Register() {
                   required
                   type="password"
                   name="rePassword"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$"
-                  minlength="8"
+                  minLength="8"
                   title="A senha deve conter no minimo 8 caracteres."
                   placeholder="Confirme sua Senha"
                 />
