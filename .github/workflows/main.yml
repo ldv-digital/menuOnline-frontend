@@ -4,11 +4,11 @@ on:
       - main
 name: 🚀 Deploy Production
 jobs:
-  run_tests:
+  run_deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do Repositorio
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
       - name: Deploy to Staging server
         uses: easingthemes/ssh-deploy@main
         env:
