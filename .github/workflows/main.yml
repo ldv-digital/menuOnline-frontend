@@ -5,14 +5,20 @@ on:
 name: 🚀 Deploy Production
 jobs:
   run_tests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ssh-key: ${{ secrets.key }}     
-          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}         
-      - name: Run script file
-        run: |    
-          chmod +x ./main_deploy.sh
-          ./main_deploy.sh
-        shell: bash
+      - name: Checkout do Repositorio
+        uses: actions/checkout@v2
+      - name: Deploy to Staging server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "./"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: "./"
+          SCRIPT_AFTER: |
+            whoami
+            ls -al
+            echo $RSYNC_STDOUT

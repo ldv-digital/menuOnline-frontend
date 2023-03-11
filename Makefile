@@ -20,6 +20,8 @@ bash:
 	docker exec -it app sh
 
 # Docker commands
-remove-all-images-docker:
-	docker network prune
-	docker rm -vf $(docker ps -a -q); docker rmi -f $(docker images -a -q)
+# docker network prune
+# docker rm -vf $(docker ps -a -q); docker rmi -f $(docker images -a -q)
+
+# criar chave ssh para o git actions
+# ssh-keygen -m PEM -t rsa -b 4096 -C "jamacio@github"
