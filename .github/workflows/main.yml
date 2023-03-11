@@ -7,7 +7,7 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do Repositorio
+      - name: Repository Checkout
         uses: actions/checkout@v1
       - name: Deploy to Production server
         uses: easingthemes/ssh-deploy@main
