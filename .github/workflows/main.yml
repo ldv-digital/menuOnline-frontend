@@ -19,7 +19,5 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "/root/menuOnline-frontend/"
           SCRIPT_BEFORE: |         
-            echo "jamacio-teste yyyyyyyyyyyyyyyy";
             cd menuOnline-frontend
-            ls -al
             make build
