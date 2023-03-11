@@ -4,7 +4,7 @@ on:
       - main
 name: 🚀 Deploy Production
 jobs:
-  run_deploy:
+  Deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do Repositorio
