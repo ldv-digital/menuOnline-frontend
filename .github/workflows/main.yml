@@ -22,6 +22,6 @@ jobs:
             ls -al
             echo "jamacio-teste";
           SCRIPT_AFTER: |
-            echo "jamacio-teste";
+            echo "jamacio-teste ..";
             ls -al
             echo $RSYNC_STDOUT
