@@ -19,6 +19,4 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "/root/menuOnline-frontend/"
           SCRIPT_AFTER: |
-            echo "jamacio-teste .. teste env file";
-            ls -al
-            echo $RSYNC_STDOUT
+            make build
