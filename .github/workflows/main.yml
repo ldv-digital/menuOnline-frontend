@@ -7,14 +7,10 @@ jobs:
   run_tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do Repositorio
-        uses: actions/checkout@v2
       - name: Deploy to Staging server
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: "./"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           SCRIPT_AFTER: |            
