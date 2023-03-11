@@ -22,6 +22,3 @@ bash:
 # Docker commands
 # docker network prune
 # docker rm -vf $(docker ps -a -q); docker rmi -f $(docker images -a -q)
-
-# criar chave ssh para o git actions
-# ssh-keygen -m PEM -t rsa -b 4096 -C "jamacio@github"
