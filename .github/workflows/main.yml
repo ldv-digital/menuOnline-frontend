@@ -20,8 +20,8 @@ jobs:
           TARGET: ${{ secrets.REMOTE_TARGET }}
           SCRIPT_BEFORE: |
             ls -al
-            whoami
+            echo "jamacio-teste";
           SCRIPT_AFTER: |
-            whoami
+            echo "jamacio-teste";
             ls -al
             echo $RSYNC_STDOUT
