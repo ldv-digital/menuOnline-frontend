@@ -14,11 +14,15 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i"
-          SOURCE: "./menuOnline-frontend/"
+          SOURCE: "/root/menuOnline-frontend/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: "./menuOnline-frontend/"
+          TARGET: "/root/menuOnline-frontend/"
+          SCRIPT_BEFORE: |
+            ls -al
+            echo "jamacio-teste yyyyyyyyyyyyyyyy";
+            make build
           SCRIPT_AFTER: |
             echo "jamacio-teste ..";
             ls -al
-            make build
+            echo $RSYNC_STDOUT
