@@ -13,10 +13,15 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "./"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}          
-          TARGET: "./"
-          SCRIPT_AFTER: |
-            echo 'jamacio-teste';
+          TARGET: ${{ secrets.REMOTE_TARGET }}
+          SCRIPT_BEFORE: |
             ls -al
+            whoami
+          SCRIPT_AFTER: |
+            whoami
+            ls -al
+            echo $RSYNC_STDOUT
