@@ -8,7 +8,6 @@ export default function Home() {
       <Navigation />
       <div className={styles.body}>
         <h1>Bem vindo!!!</h1>
-        <p>teste CI/CD</p>
       </div>
       <Footer />
     </>
