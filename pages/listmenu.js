@@ -10,13 +10,11 @@ export default function ListMenu() {
     const router = useRouter()
 
     useEffect(() => {
-        listMenuData().then(menu => {
-            setMenus(menu);
-        })
-    }, [Menus]);
+        listMenuData();
+    }, []);
 
     async function deleteMenu(id) {
-        const result = await client.mutate({
+        const { data }  = await client.mutate({
             mutation: gql`
             mutation deleteMenu($id: String) {
                 deleteMenu(id: $id) {
@@ -27,9 +25,9 @@ export default function ListMenu() {
             variables: { id }
         });
 
-        if (result?.status) {
+        if (parseInt(data?.deleteMenu?.status)) {
             console.log('sucesso');
-            setMenus([]);
+            listMenuData();
         } else {
             console.log('error');
         }
@@ -50,8 +48,7 @@ export default function ListMenu() {
     `,
             fetchPolicy: "no-cache"
         })
-
-        return data.listMenu
+        setMenus(data.listMenu);
     }
 
     return (<div>
