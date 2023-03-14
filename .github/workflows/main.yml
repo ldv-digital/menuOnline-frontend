@@ -20,5 +20,4 @@ jobs:
           TARGET: "./menuOnline-frontend/"
           SCRIPT_AFTER: |         
             cd menuOnline-frontend
-            make stop
             make build
