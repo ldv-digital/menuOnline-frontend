@@ -8,7 +8,7 @@ export default function Home() {
       <Navigation />
       <div className={styles.body}>
         <h1>Bem vindo!!!</h1>
-        <p>teste CI/CD</p>
+        <p>teste CI/CD - 2</p>
       </div>
       <Footer />
     </>
