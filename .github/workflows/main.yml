@@ -21,3 +21,4 @@ jobs:
           SCRIPT_AFTER: |         
             cd menuOnline-frontend
             make build
+            exit
