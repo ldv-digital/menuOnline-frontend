@@ -2,9 +2,10 @@ import { gql } from '@apollo/client'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import client from '../services/apollo-client'
-import styles from '../styles/Home.module.css'
+import styles from './login.module.css'
 import { Navigation } from '../components/Navigation'
 import { getUser } from '../hooks/getUser'
+import { Footer } from '../components/footer'
 
 export default function Login() {
   const [user, setUser] = useState('')
@@ -116,6 +117,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

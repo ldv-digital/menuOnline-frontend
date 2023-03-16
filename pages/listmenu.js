@@ -3,6 +3,7 @@ import { gql } from '@apollo/client'
 import client from '../services/apollo-client'
 import { useRouter } from 'next/router'
 import { Navigation } from '../components/Navigation';
+import styles from './listmenu.module.css'
 
 export default function ListMenu() {
     const urlMinio = '//' + process.env.NEXT_PUBLIC_MINIO_ENDPOINT + ':' + process.env.NEXT_PUBLIC_MINIO_PORT + '/' + process.env.NEXT_PUBLIC_MINIO_BUCKET
@@ -10,13 +11,11 @@ export default function ListMenu() {
     const router = useRouter()
 
     useEffect(() => {
-        listMenuData().then(menu => {
-            setMenus(menu);
-        })
-    }, [Menus]);
+        listMenuData();
+    }, []);
 
     async function deleteMenu(id) {
-        const result = await client.mutate({
+        const { data }  = await client.mutate({
             mutation: gql`
             mutation deleteMenu($id: String) {
                 deleteMenu(id: $id) {
@@ -27,9 +26,9 @@ export default function ListMenu() {
             variables: { id }
         });
 
-        if (result?.status) {
+        if (parseInt(data?.deleteMenu?.status)) {
             console.log('sucesso');
-            setMenus([]);
+            listMenuData();
         } else {
             console.log('error');
         }
@@ -50,22 +49,26 @@ export default function ListMenu() {
     `,
             fetchPolicy: "no-cache"
         })
-
-        return data.listMenu
+        setMenus(data.listMenu);
     }
 
-    return (<div>
+    return (<>
         <Navigation />
+        <div className={styles.menuOps}>
         {Menus.map((item) => (
-            <div key={item.id}>
+            
+            <div className={styles.me} key={item.id}>
                 <img src={urlMinio + '/' + item.urlMenu} width="300" />
-                <div><button onClick={() => router.push(item.id)}>Visualizar</button> |  <button onClick={() => router.push('/updatemenu/' + item.id)}>Editar</button> | <button onClick={() => deleteMenu(item.id)}>Excluir</button></div>
+                <div className={styles.menuList} >
+                    <button onClick={() => router.push(item.id)}>Visualizar</button> |  
+                    <button onClick={() => router.push('/updatemenu/' + item.id)}>Editar</button> | 
+                    <button onClick={() => deleteMenu(item.id)}>Excluir</button></div>
 
-                <br></br>
-                <br></br>
             </div>
+            
         ))}
-    </div>);
+        </div>
+    </>);
 }
 
 

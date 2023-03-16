@@ -4,6 +4,8 @@ import { gql } from "@apollo/client";
 import client from "../services/apollo-client";
 import { getUser } from '../hooks/getUser';
 import { Navigation } from '../components/Navigation';
+import styles from './createmenu.module.css'
+
 
 export default function createmenu() {
   const [user, setUser] = useState({});
@@ -56,17 +58,21 @@ export default function createmenu() {
   };
 
   return (
-    <div>
+    <>
       <Navigation />
-      <input onChange={onChange} type="file" name="file" />
+      <div className={styles.body}>
+        <div className={styles.box}>
       {idMenu ? (
-        <><p>Menu criado com sucesso {idMenu}</p>
-          <p><img src={imgName} /></p>
+        <><p>Menu criado com sucesso {idMenu} <a href='/listmenu'>Ver menu</a></p>
+          <img src={imgName} />
         </>
       ) : (
-        <>Selecione uma imagem</>
-      )}
-    </div>
+        <h2>Selecione uma imagem</h2>
+        )}
+        <input onChange={onChange} type="file" name="file" />
+       </div>
+      </div>
+    </>
   );
 }
 

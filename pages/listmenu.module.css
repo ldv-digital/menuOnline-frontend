@@ -1,0 +1,33 @@
+.menuOps {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.me {
+  padding: 20px;
+}
+
+.menuList {
+width: 300px;
+text-align: center;
+}
+
+.menuList button {
+  height: 35px;
+  color: #fff;
+  background-color: #8609e5;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 16px;
+  border: solid 1px transparent;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: 0.3s;
+}
+
+.menuList button:hover {
+    background-color: transparent;
+    border: solid 1px #333;
+    cursor: pointer;
+  }

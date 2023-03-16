@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { gql } from '@apollo/client'
 import client from '../services/apollo-client'
 import { useRouter } from 'next/router'
-import styles from '../styles/Home.module.css'
+import styles from '../components/footer/Footer.module.css'
+
 
 export default function MenuCliente() {
   const urlMinio =
@@ -26,12 +27,13 @@ export default function MenuCliente() {
   }, [id])
 
   return (
-    <div className={styles.cardapio}>
+    <div className={styles.body}>
+      <a className={styles.botao} href="/listmenu">&#11013;</a>
       <img src={urlMenu} Style="width: 100%;" />
       <div className={styles.footer}>
         <a href="/register">
           Crie sua conta grátis! Desfrute do acesso ao menu virtual, sem custo
-          algum!
+          algum!!
         </a>
       </div>
     </div>

@@ -4,17 +4,20 @@ on:
       - main
 name: 🚀 Deploy Production
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  Deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v2
-
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          server: ${{ secrets.ftp_host }}
-          username: ${{ secrets.ftp_user }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
-          script: './main_deploy.sh'
+      - name: Repository Checkout
+        uses: actions/checkout@v1
+      - name: Deploy Production server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "./"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: "./menuOnline-frontend/"
+          SCRIPT_AFTER: |         
+            cd menuOnline-frontend
+            make build
