@@ -1,0 +1,57 @@
+.body {
+    height: calc(100vh - 40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .conta{
+    padding: 60px;
+    max-width: 450px;
+    height: 550px;
+    background-color: rgba(0, 0, 0, 0.559);
+    border-radius: 10px;
+    box-shadow: 1px 3px 8px rgba(230, 219, 219, 0.809);
+    box-sizing: border-box;
+  }
+
+  .conta p{
+    font-size: 1.1rem;
+    padding: 15px 0;
+    color: #fff;
+  }
+
+  .conta button{
+    height: 50px;
+    width: 100%;
+    color: #fff;
+    background-color: #8609e5;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    margin-bottom: 10px;
+    transition: 0.3s;
+  }
+
+
+  .conta button:active{
+    opacity: 0;
+    transition: 0.3s
+  }
+
+  .conta button:hover{
+    background-color: transparent;
+    border: solid 1px #333;
+    cursor: pointer;
+  }
+
+  @media (max-width: 500px) {
+    .body {
+      width: 300px;
+      padding: 30px;
+    }
+  
+  
+  }

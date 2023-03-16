@@ -1,5 +1,6 @@
 import { Navigation } from '../components/Navigation'
-import styles from '../styles/Home.module.css'
+import styles from './termsPrivacy.module.css'
+import {Footer} from '../components/footer/index'
 
 export default function Terms() {
   return (
@@ -155,6 +156,7 @@ export default function Terms() {
           </span>
         </p>
       </div>
+      <Footer />
     </>
   )
 }

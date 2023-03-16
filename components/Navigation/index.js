@@ -23,7 +23,7 @@ export const Navigation = () => {
 
   return (
     <nav className={Nav.nav}>
-      <div className={Nav.logo}>MenuOnline</div>
+      <div className={Nav.logo}><a href='/'>MenuOnline</a></div>
 
       {!userState?.id ? (
         <>

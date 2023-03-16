@@ -1,7 +1,7 @@
 .nav{
   background: linear-gradient(170deg, #000000a2, #8609e5b5);
   color: #fff;
-  font-size: 16px;
+  font-size: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,11 +9,7 @@
   font-weight: bold;
 }
 
-.logo{
-  padding: 22px;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
+
 
 .nav a{
   padding: 12px;
@@ -22,6 +18,13 @@
 
 .nav a:hover{
   background-color: #8609e5fb;
+}
+
+.nav .logo a{
+  padding: 5px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: transparent;
 }
 
 @media (max-width: 620px) {
