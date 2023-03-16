@@ -1,6 +1,6 @@
 import { Navigation } from '../components/Navigation'
 import { Footer } from '../components/footer'
-import styles from '../styles/Home.module.css'
+import styles from './termsPrivacy.module.css'
 
 export default function Privacy() {
   return (

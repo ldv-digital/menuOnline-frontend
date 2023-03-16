@@ -4,6 +4,7 @@ import { Navigation } from '../components/Navigation'
 import { useRouter } from 'next/router'
 import { gql } from '@apollo/client'
 import client from '../services/apollo-client'
+import styles from './updateaccount.module.css'
 
 export default function UpdateAccount() {
   const router = useRouter()
@@ -72,36 +73,34 @@ export default function UpdateAccount() {
   }
 
   return (
-    <form onSubmit={handleUpdate}>
-      <div>
-        <input type="text" name="name" defaultValue={user?.name} />
+    <>
+    <Navigation />
+    <div className={styles.body}>
+    <form className={styles.form} onSubmit={handleUpdate}>
+      <h2>Atualize suas informações</h2>
+      <div className={styles.input_box}>
+        <input type="text" name="name" placeholder="Nome" defaultValue={user?.name} />
       </div>
 
-      <div>
-        <input type="email" name="email" defaultValue={user?.email} />
-      </div>
-
-      <div>
+      <div className={styles.input_box}>
         <input
           required
           type="password"
           name="rePassword"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$"
-          minlength="8"
+          minLength="8"
           title="A senha deve conter no minimo 8 caracteres."
-          placeholder="Confirme sua Senha"
+          placeholder="Nova Senha"
         />
       </div>
 
-      <div>
+      <div className={styles.input_box}>
         <input
           required
           type="password"
           name="rePassword"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$"
-          minlength="8"
+          minLength="8"
           title="A senha deve conter no minimo 8 caracteres."
-          placeholder="Confirme sua Senha"
+          placeholder="Confirme nova Senha"
         />
       </div>
 
@@ -109,5 +108,7 @@ export default function UpdateAccount() {
         <button>Atualizar</button>
       </div>
     </form>
+    </div>
+    </>
   )
 }

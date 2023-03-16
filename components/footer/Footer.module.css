@@ -13,8 +13,35 @@
   margin: 0;
   padding: 11px;
   transition: all 0.3s;
+  color: #fff;
 }
 
 .footer a:hover{
   background-color: #8609e5fb;
+}
+
+.body {
+  align-items: center;
+  background: linear-gradient(170deg, #000000a2, #8609e5);
+}
+
+.body .botao{
+  text-decoration: none;
+  color: white;
+  background-color: #8609e5fb;
+  padding: 12px;
+  position: fixed;
+  right: 100px;
+  bottom: 10px;
+  opacity: 60%;
+  transition: .2s;
+  font-size: 1.2rem;
+}
+
+.body .botao:hover{
+  opacity: 1;
+  padding: 15px;
+  background: black;
+  border: solid 1px #8609e5fb;
+  color: #8609e5;
 }

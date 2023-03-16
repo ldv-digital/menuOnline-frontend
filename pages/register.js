@@ -1,8 +1,9 @@
 import { gql } from '@apollo/client'
 import client from '../services/apollo-client'
-import styles from '../styles/Home.module.css'
+import styles from './register.module.css'
 import { useRouter } from 'next/router'
 import { Navigation } from '../components/Navigation'
+import { Footer } from '../components/footer'
 
 export default function Register() {
   const router = useRouter()
@@ -93,6 +94,7 @@ export default function Register() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }
