@@ -22,5 +22,4 @@ jobs:
             #!/bin/bash    
             cd menuOnline-frontend
             echo "${{ vars.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
-            make build
-            make up
+            docker compose up
