@@ -17,3 +17,4 @@ COPY . /opt/app
 
 RUN yarn build
 CMD [ "yarn", "start" ]
+RUN exit 0
