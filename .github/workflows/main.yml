@@ -21,4 +21,4 @@ jobs:
           SCRIPT_AFTER: |         
             cd menuOnline-frontend
             echo "${{ vars.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
-            make build;
+            make up;
