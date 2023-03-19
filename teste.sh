@@ -1,4 +1,4 @@
 #!/bin/bash    
 
-echo "teste...."
+echo "teste.... jamacio"
 make build

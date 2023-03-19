@@ -12,7 +12,7 @@ COPY yarn.lock /opt/app
 COPY .eslintrc.json /opt/app/.eslintrc.json
 COPY package.json *.lock ./
 RUN yarn install --production
-RUN yarn add --prod eslint
+RUN yarn add --dev eslint
 COPY . /opt/app
 
 RUN yarn build
