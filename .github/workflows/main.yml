@@ -21,5 +21,4 @@ jobs:
           SCRIPT_AFTER: |         
             cd menuOnline-frontend
             echo "${{ vars.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
-            make stop;
-            make build;
+            docker-compose -f docker-compose.yml down && docker-compose -f docker-compose.yml up -d --remove-orphans
