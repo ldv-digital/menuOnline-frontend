@@ -20,5 +20,5 @@ jobs:
           TARGET: "./menuOnline-frontend/"
           SCRIPT_AFTER: |         
             cd menuOnline-frontend
-            echo "{{ env.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
+            echo "${{ env.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
             make build;
