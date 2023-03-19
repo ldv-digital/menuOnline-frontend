@@ -16,5 +16,6 @@ RUN yarn add --dev eslint
 COPY . /opt/app
 
 RUN yarn build
+RUN exit 0
 CMD [ "yarn", "start" ]
 RUN exit 0
