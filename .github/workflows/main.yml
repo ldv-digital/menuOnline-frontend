@@ -20,4 +20,4 @@ jobs:
           TARGET: "./menuOnline-frontend/"
           SCRIPT_AFTER: |         
             cd menuOnline-frontend
-            docker-compose -f docker-compose.yml down && docker-compose -f docker-compose.yml up -d --build --remove-orphans
+            echo env.ENV;
