@@ -18,7 +18,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "./menuOnline-frontend/"
-          SCRIPT_AFTER: |     
+          SCRIPT_BEFORE: |     
             #!/bin/bash    
             cd menuOnline-frontend
             echo "${{ vars.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
