@@ -17,7 +17,7 @@ docker-inspect:
 	docker network inspect bridge
 
 bash:
-	docker exec -it app sh
+	docker exec -it app_frontend sh
 
 # Docker commands
 # docker network prune
