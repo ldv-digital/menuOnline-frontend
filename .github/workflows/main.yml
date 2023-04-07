@@ -21,6 +21,8 @@ jobs:
           SCRIPT_AFTER: |     
             #!/bin/bash    
             cd menuOnline-frontend
+            rm -rf node_modules
+            rm -rf .env
             echo "${{ vars.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
             make stop;
             make build;
