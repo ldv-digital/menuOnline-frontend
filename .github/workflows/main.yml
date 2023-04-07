@@ -24,5 +24,8 @@ jobs:
             rm -rf node_modules
             rm -rf .env
             echo "${{ vars.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
-            make stop;
+
+            docker rm -vf app_frontend
+            docker rmi -f $(docker images -q | grep -v app_frontend)
+
             make build;
