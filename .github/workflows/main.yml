@@ -25,7 +25,8 @@ jobs:
             rm -rf .env;
             make stop;
             docker rm -vf app_frontend;
-            docker rmi -f $(docker images -q | grep -v app_frontend);                
+            docker rmi -f $(docker images -q | grep -v app_frontend);  
+            make build;              
           SCRIPT_AFTER: |     
             #!/bin/bash    
             cd menuOnline-frontend;
