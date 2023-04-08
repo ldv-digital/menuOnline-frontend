@@ -21,7 +21,9 @@ jobs:
           SCRIPT_BEFORE: |
             #!/bin/bash    
             cd menuOnline-frontend;
-            docker ps             
+            make stop;
+            docker rm -vf app_frontend;
+            docker rmi -f $(docker images -q | grep -v app_frontend);           
           SCRIPT_AFTER: |     
             #!/bin/bash    
             cd menuOnline-frontend;
