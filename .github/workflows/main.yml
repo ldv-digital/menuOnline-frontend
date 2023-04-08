@@ -18,15 +18,12 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "./menuOnline-frontend/"
-          SCRIPT_BEFORE: |
-            #!/bin/bash    
-            cd menuOnline-frontend;
-            docker rm -vf app_frontend;
-            docker rmi -f $(docker images -q | grep -v app_frontend);           
           SCRIPT_AFTER: |     
             #!/bin/bash    
             cd menuOnline-frontend;
             rm -rf node_modules;
             rm -rf .env;
             echo "${{ vars.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
+            docker rm -vf app_frontend;
+            docker rmi -f $(docker images -q | grep -v app_frontend);    
             make build;
