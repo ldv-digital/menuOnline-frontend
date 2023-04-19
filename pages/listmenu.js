@@ -1,14 +1,18 @@
-import { useEffect, useState } from 'react'
-import { gql } from '@apollo/client'
-import client from '../services/apollo-client'
-import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react';
+import { gql } from '@apollo/client';
+import client from '../services/apollo-client';
+import { useRouter } from 'next/router';
 import { Navigation } from '../components/Navigation';
-import styles from './listmenu.module.css'
+import styles from './listmenu.module.css';
+import QRCode from 'qrcode';
+
 
 export default function ListMenu() {
     const urlMinio = '//' + process.env.NEXT_PUBLIC_MINIO_ENDPOINT + ':' + process.env.NEXT_PUBLIC_MINIO_PORT + '/' + process.env.NEXT_PUBLIC_MINIO_BUCKET
     const [Menus, setMenus] = useState([])
+    const [linkQr, setLinkQr] = useState('')
     const router = useRouter()
+
 
     useEffect(() => {
         listMenuData();
@@ -51,24 +55,44 @@ export default function ListMenu() {
         })
         setMenus(data.listMenu);
     }
+   
 
-    return (<>
-        <Navigation />
-        <div className={styles.menuOps}>
+async function generateQRCode(id) {
+    const qrCodeUrl = await QRCode.toDataURL('http://191.101.234.188/' + '/' + id, { width: 500 });
+    setLinkQr(qrCodeUrl);
+  }
+  
+  return (
+    <>
+      <Navigation />
+      <div className={styles.menuOps}>
         {Menus.map((item) => (
-            
-            <div className={styles.me} key={item.id}>
-                <img src={urlMinio + '/' + item.urlMenu} width="300" />
-                <div className={styles.menuList} >
-                    <button onClick={() => router.push(item.id)}>Visualizar</button> |  
-                    <button onClick={() => router.push('/updatemenu/' + item.id)}>Qrcode</button> | 
-                    <button onClick={() => deleteMenu(item.id)}>Excluir</button></div>
+          <div className={styles.me} key={item.id}>
+            <img src={urlMinio + '/' + item.urlMenu} width="300" />
+            <div className={styles.menuList}>
+              <button onClick={() => router.push(item.id)}>Visualizar</button> |
 
+              <button onClick={() => generateQRCode(item.id)}>
+              {linkQr ? (
+                <a href={linkQr} download={'qr-code.png'}>
+                QRcode
+              </a>
+              ) : (
+                <a href={linkQr} download={'qr-code.png'}>
+                  QRcode
+                </a>
+              )
+              }
+
+              </button> |
+             
+             
+              <button onClick={() => deleteMenu(item.id)}>Excluir</button>
             </div>
-            
+          </div>
         ))}
-        </div>
-    </>);
+      </div>
+    </>
+  );
+              
 }
-
-

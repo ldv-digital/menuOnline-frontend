@@ -31,3 +31,24 @@ text-align: center;
     border: solid 1px #333;
     cursor: pointer;
   }
+
+.menuList a {
+  padding: .5rem 1rem;
+  height: 35px;
+  color: #fff;
+  background-color: transparent;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 16px;
+  border: solid 1px transparent;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: 0.3s;
+  }
+
+  .menuList a:hover {
+    background-color: transparent;
+    border: solid 1px transparent;
+    cursor: pointer;
+  }
+
