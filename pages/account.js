@@ -26,7 +26,7 @@ export default function Account() {
         <Navigation />
          <div className={styles.body}>
             <div className={styles.conta}>
-            <p>Conta</p>
+            <p>Bem Vindo:  {user?.name}</p>
             <p>user: {user?.id}</p>
             <p>Nome: {user?.name}</p>
             <p>Email: {user?.email}</p>

@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: all;
   }
 
   .conta{
@@ -47,11 +48,17 @@
     cursor: pointer;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 460px) {
     .body {
       width: 300px;
       padding: 30px;
     }
-  
+   
+    .conta{
+      text-align: center;
+      padding: 40px;
+      max-width: 450px;
+      height: 550px;
+    }
   
   }

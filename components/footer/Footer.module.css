@@ -45,3 +45,9 @@
   border: solid 1px #8609e5fb;
   color: #8609e5;
 }
+
+@media (max-width: 660px){
+  .body .botao{
+   display: none;
+  }
+}

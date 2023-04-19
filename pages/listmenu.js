@@ -61,7 +61,7 @@ export default function ListMenu() {
                 <img src={urlMinio + '/' + item.urlMenu} width="300" />
                 <div className={styles.menuList} >
                     <button onClick={() => router.push(item.id)}>Visualizar</button> |  
-                    <button onClick={() => router.push('/updatemenu/' + item.id)}>Editar</button> | 
+                    <button onClick={() => router.push('/updatemenu/' + item.id)}>Qrcode</button> | 
                     <button onClick={() => deleteMenu(item.id)}>Excluir</button></div>
 
             </div>

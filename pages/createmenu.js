@@ -27,8 +27,8 @@ export default function createmenu() {
 
   if (!user.id) {
     return (
-      <div>
-        Faça Login para criar um menu
+      <div className={styles.link}>
+        <a href='/login'>Faça Login para criar um menu</a>
       </div>
     );
   }
@@ -63,7 +63,9 @@ export default function createmenu() {
       <div className={styles.body}>
         <div className={styles.box}>
       {idMenu ? (
-        <><p>Menu criado com sucesso {idMenu} <a href='/listmenu'>Ver menu</a></p>
+        <>
+          <p>Menu criado com sucesso {idMenu} </p>
+          <a href='/listmenu'>Ver menu</a>
           <img src={imgName} />
         </>
       ) : (
