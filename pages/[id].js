@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { gql } from '@apollo/client'
 import client from '../services/apollo-client'
 import { useRouter } from 'next/router'
+import { getUser } from '../hooks/getUser';
+import { Navigation } from '../components/Navigation';
 import styles from '../components/footer/Footer.module.css'
 
 
@@ -14,10 +16,16 @@ export default function MenuCliente() {
     '/' +
     process.env.NEXT_PUBLIC_MINIO_BUCKET
   const [urlMenu, setUrlMenu] = useState('')
+  const [user, setUser] = useState({})
   const router = useRouter()
   const { id } = router.query
 
   useEffect(() => {
+    async function fetchData() {
+      const data = await getUser()
+      setUser(data)
+    }
+    fetchData();
     if (id) {
       getMenuById(id).then(value => {
         const { urlMenu } = value
@@ -28,7 +36,13 @@ export default function MenuCliente() {
 
   return (
     <div className={styles.body}>
-      <a className={styles.botao} href="/listmenu">&#11013;</a>
+      {(user?.id) && (
+        <>
+          <Navigation />
+          <a className={styles.botao} href="/listmenu">&#11013;</a>
+        </>
+      )}
+
       <img src={urlMenu} Style="width: 100%;" />
       <div className={styles.footer}>
         <a href="/register">
