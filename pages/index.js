@@ -13,7 +13,7 @@ export default function Home() {
         <div className={styles.home}>
 
           <h2 className={styles.animeLeft}>
-            "aaaaaaaaaaaaaaaaaa Seja {'bem-vindo(a)'} ao Menu Online! Aqui você encontrará uma maneira fácil
+            "Seja {'bem-vindo(a)'} ao Menu Online! Aqui você encontrará uma maneira fácil
             e prática para que os donos de bares e restaurantes possam hospedar uma
             imagem do cardápio online. Com o nosso serviço, você poderá compartilhar
             o seu cardápio com seus clientes de forma rápida e eficiente, evitando a
