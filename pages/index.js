@@ -20,7 +20,7 @@ export default function Home() {
             impressão de cardápios físicos e ajudando na preservação do meio ambiente.
             Navegue pelo nosso site e descubra como é simples ter o seu cardápio online.
             Cadastre-se agora e comece a aproveitar todas as vantagens que oferecemos
-            para o seu negócio! "
+            para o seu negócio!"
           </h2>
           <div className={`${styles.imagens} ${styles.animeRight}`}>
             <Image src={img} alt="imagem ilustrativa de um cardapio" />
